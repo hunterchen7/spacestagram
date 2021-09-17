@@ -34,25 +34,31 @@ function likePost(post) {
     }
     
     localStorage.setItem('SpacestagramLikedPosts', JSON.stringify(likedPosts));
-    console.log(`liked posts: ${likedPosts}`)
+}
+
+function copyURL(post) {
+    navigator.clipboard.writeText(post.url);
 }
 
 function Post(props) {
     props = props.props;
     return (
         <div className="post" id={ props.title.replace(/\s/g, '') }>
-            <div className={"like-button" + (liked(props.title) ? ' liked' : '')}
-                id={ props.title.replace(/\s/g, '') + 'Like'}
-                onClick={() => likePost(props)}
-            />
             <div className="post_title">{ props.title }</div>
-            <div className="share-button" id={ props.title.replace(/\s/g, '') + 'Share'}/>
             <br></br>
-            { props.media_type === 'image'
-                ? <img src={ props.url } className="image" alt="oops, looks like this post couldn't load"/>
-                : <iframe title={ props.title } src={ props.url } width="720" height="400"/>
-            }
-            <br></br><br></br><br></br>
+                { props.media_type === 'image'
+                    ? <img src={ props.url } className="image" alt="oops, looks like this post couldn't load"/>
+                    : <iframe title={ props.title } src={ props.url } width="720" height="400"/>
+                }
+                <div id='buttons'>
+                    <div className={"like-button button" + (liked(props.title) ? ' liked' : '')}
+                        id={ props.title.replace(/\s/g, '') + 'Like'}
+                        onClick={() => likePost(props)}/>
+                    <div className="share-button button" id={ props.title.replace(/\s/g, '') + 'Share'}
+                            onClick={() => copyURL(props)}>
+                    📋</div>
+                </div>
+                <br/>
             <h5 className="post_info">- { props.date } - { props.copyright ? props.copyright + ' -' : ''} </h5>
             <br></br>
             <h5 className="post_desc">{ props.explanation }</h5>

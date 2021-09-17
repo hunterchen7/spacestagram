@@ -17,7 +17,7 @@ function Landing() {
                 </h4>
                 <button className="btn btn-outline-primary bton-large" id='liftoff_button' type="submit">
                     <Link to="/posts" style={{textDecoration: 'none'}}> Lift Off! 🚀 </Link>
-                </button>    
+                </button>
             </div>
             <br></br>
             <h5 id="source_code">

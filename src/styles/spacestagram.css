@@ -37,7 +37,7 @@ body {
 .post {
     margin: 50px;
     border-radius: 10px;
-    border: 5px solid #ccc;
+    border: 5px solid steelblue;
     border-color: steelblue;
     padding: 50px;
     padding-left: 15%;
@@ -49,6 +49,7 @@ body {
     border: 1px solid;
     border-color: steelblue;
     max-height: 60vh;
+    max-width: 60vw;
     margin: auto;
 }
 
@@ -57,10 +58,34 @@ body {
 }
 
 .like-button {
-    position: absolute;
-    text-align: left;
+    position: relative;
     width: 80px;
     height: 65px;
+    z-index: 3;
+    left: 40%;
+    top: 85px;
+}
+
+#buttons {
+    margin-top: -50px;
+    white-space: nowrap;
+}
+
+.buttons {
+    display: inline-block;
+}
+
+.share-button {
+    position: relative;
+    font-size: 60px;
+    left: 50%;
+    z-index: 2;
+    width: 80px;
+}
+
+.share-button:hover {
+    text-shadow: 0px 0px 10px steelblue;
+    cursor: pointer;
 }
 
 .like-button:before {

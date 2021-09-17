@@ -59,6 +59,7 @@ function Posts() {
     
     return (
         <div>
+            <br/>
             <button className="btn btn-outline-primary" id="title">
                 <Link to="/" style={{textDecoration: 'none'}}>Spacestagram 🌌</Link>
             </button>
