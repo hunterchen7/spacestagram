@@ -1,0 +1,120 @@
+#title {
+    margin: auto;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: steelblue;
+    font-size: 36px;
+    display: block;
+    z-index: 3;
+    border: 0px;
+    text-decoration: none;
+}
+
+#title:hover {
+    background-color: black;
+    color: cornflowerblue;
+}
+
+body {
+    background: rgb(35, 35, 35);
+    color: whitesmoke;
+}
+
+#loading {
+    z-index: -100;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.post_title {
+    font-size: 32px;
+}
+
+.post {
+    margin: 50px;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+    border-color: steelblue;
+    padding: 50px;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+}
+
+.image {
+    border: 1px solid;
+    border-color: steelblue;
+    max-height: 60vh;
+    margin: auto;
+}
+
+#title, body, .post, .image, #posts{
+    z-index: 1;
+}
+
+.like-button {
+    position: absolute;
+    text-align: left;
+    width: 80px;
+    height: 65px;
+}
+
+.like-button:before {
+    top: 0;
+    left: 40px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.like-button:after {
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
+
+.like-button:before, .like-button:after { 
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    border-radius: 20px 20px 0 0;
+    background-color: white;
+    content: "";
+    cursor: pointer;
+    transition: background .4s;
+}
+
+.like-button.liked::before,
+.like-button.liked::after {
+    background-color: crimson;
+}
+
+.like-button:hover:before,
+.like-button:hover:after {
+    background-color: lightcoral;
+}
+
+.like-button.liked:hover:before,
+.like-button.liked:hover:after {
+    background-color: red;
+}
+
+.like-button.liked {
+    animation: liked .3s ease;
+}
+
+@keyframes liked { /* smaller than bigger when liked */
+    0% {
+    transform: scale(.95);
+    }
+    50% {
+    transform: scale(1.05);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
