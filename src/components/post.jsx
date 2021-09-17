@@ -50,7 +50,7 @@ function Post(props) {
             <br></br>
                 { props.media_type === 'image'
                     ? <img src={ props.url } className="image" alt="oops, looks like this post couldn't load"/>
-                    : <iframe title={ props.title } src={ props.url } width="100%" height={isMobile ? '40%' : '500vh'}/>
+                    : <iframe title={ props.title } src={ props.url } width={isMobile ? '110%' : "80%"} height={isMobile ? '40%' : '550vh'}/>
                 }
                 <div id='buttons'>
                     <div className={"like-button button" + (liked(props.title) ? ' liked' : '')}
