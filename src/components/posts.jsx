@@ -20,7 +20,7 @@ function Posts() {
     const [posts, setPosts] = useState([]);
 
     let end = Date.now() // milliseconds
-    let start = end - daysToMilsecs(50); // milliseconds 50 days ago
+    let start = end - daysToMilsecs(30); // milliseconds 50 days ago
     let endParsed = formatMilsecs(end) // YYYY-MM-DD
     let startParsed = formatMilsecs(start); // YYYY-MM-DD 50 days ago
 
@@ -37,7 +37,7 @@ function Posts() {
 
     useEffect(() => {
         setInterval(() => {
-            if (document.getElementsByClassName('like-button').length > 25) { // more than half loaded
+            if (document.getElementsByClassName('like-button').length > 15) { // more than half loaded
                 document.getElementById('loading').style.display = 'none';
             }
             let loadingText = document.getElementById('loadingText')
