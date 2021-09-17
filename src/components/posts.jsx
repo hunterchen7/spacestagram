@@ -65,7 +65,7 @@ function Posts() {
             </button>
             <div id='loading' style={{position: 'absolute', textAlign: 'center'}}>
                 <img src={loading} alt="loading" style={{width: '15vw'}}/>
-                <br></br>
+                <br></br><br></br>
                 <div style={{fontSize: '25px'}} id="loadingText">loading...</div>
             </div>
             {posts.map(post => (
