@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/spacestagram.css';
 import '../styles/bootstrap.min.css';
 
+const isMobile = window.innerHeight > window.innerWidth;
+
 function getLikedPosts() {
     let likedPosts = localStorage.getItem('SpacestagramLikedPosts');
 
@@ -48,14 +50,15 @@ function Post(props) {
             <br></br>
                 { props.media_type === 'image'
                     ? <img src={ props.url } className="image" alt="oops, looks like this post couldn't load"/>
-                    : <iframe title={ props.title } src={ props.url } width="720" height="400"/>
+                    : <iframe title={ props.title } src={ props.url } width="100%" height={isMobile ? '40%' : '500vh'}/>
                 }
                 <div id='buttons'>
                     <div className={"like-button button" + (liked(props.title) ? ' liked' : '')}
                         id={ props.title.replace(/\s/g, '') + 'Like'}
                         onClick={() => likePost(props)}/>
                     <div className="share-button button" id={ props.title.replace(/\s/g, '') + 'Share'}
-                            onClick={() => copyURL(props)}>
+                            onClick={() => copyURL(props)}
+                            style={{visibility: isMobile ? 'hidden' : 'visible'}}>
                     📋</div>
                 </div>
                 <br/>
