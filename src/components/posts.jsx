@@ -36,7 +36,7 @@ function Posts() {
     },[startParsed, endParsed])
 
     useEffect(() => {
-        setInterval(() => {
+        const loading = setInterval(() => {
             if (document.getElementsByClassName('like-button').length > 15) { // more than half loaded
                 document.getElementById('loading').style.display = 'none';
             }
@@ -55,6 +55,7 @@ function Posts() {
                 }            
             }
         }, 500);
+        return () => clearInterval(loading);
     }, [start, end, posts, setPosts]);
     
     return (
